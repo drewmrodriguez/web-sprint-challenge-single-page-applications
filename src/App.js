@@ -1,20 +1,22 @@
 import React from "react";
-import {Switch, Route} from 'react-router-dom';
-import Form from './Components/Form';
-import Home from './Components/Home';
-import NavBar from './Components/NavBar'
-import Confirmation from './Components/Confirmation';
+import "./App.css";
+import FormInputs from "./components/Form"
+import HomePage from "./components/Home";
+import {BrowserRouter as Router, Route,} from "react-router-dom"
+import Navbar from "./components/Navbar";
+
+
 
 const App = () => {
+  
   return (
-    <div className="App">
-      <NavBar/>
-      <Switch>
-        <Route path="/pizza-form/:orderid" render={()=><Confirmation/>}/>
-        <Route path="/pizza-form" render={()=><Form/>}/>
-        <Route exact path="/" render={()=><Home/>}/>
-      </Switch>
-    </div>
-  );
+    <Router>
+      <Navbar />
+    <Route path="/" exact component={HomePage} />
+    <Route path="/Form" exact component={FormInputs} />
+    </Router>
+    
+  )
 };
+  
 export default App;
